@@ -1,0 +1,19 @@
+:host {
+  display: flex;
+  flex-flow: row nowrap;
+  > * {
+    padding: 0.5em;
+    &:not(.main) {
+      flex: 0 0 1;
+      background-color: lightblue;
+      cursor: pointer;
+    }
+  }
+  > span.main {
+    flex: 1 0 1em;
+    text-align: center;
+    background-color: lightgoldenrodyellow;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+}

@@ -1,0 +1,14 @@
+<h2>date picker</h2>
+
+<input matInput [matDatepicker]="picker" placeholder="Choose a date">
+<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+<mat-datepicker [calendarHeaderComponent]="datePickerHeader" #picker></mat-datepicker>
+
+<!--
+<mat-form-field>
+  <mat-label>Start Date</mat-label>
+  <input matInput [matDatepicker]="picker">
+  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+  <mat-datepicker #picker [calendarHeaderComponent]="exampleHeader"></mat-datepicker>
+</mat-form-field>
+-->
