@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MyDatePickerHeaderComponent } from './my-date-picker-header.component';
+import {DomSanitizer} from '@angular/platform-browser';
+import {MatIconRegistry} from '@angular/material';
 
 @Component({
   selector: 'app-my-date-picker',
@@ -12,7 +14,10 @@ export class MyDatePickerComponent implements OnInit {
 
   startDate = new Date();
 
-  constructor() { }
+  constructor(iconRegistry: MatIconRegistry, sanitizer: DomSanitizer) {
+    iconRegistry.addSvgIcon('calendar',
+      sanitizer.bypassSecurityTrustResourceUrl('/assets/calendar.svg'));
+  }
 
   ngOnInit() {
   }

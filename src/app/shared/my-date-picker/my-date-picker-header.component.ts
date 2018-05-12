@@ -29,6 +29,8 @@ export class MyDatePickerHeaderComponent implements OnDestroy {
       sanitizer.bypassSecurityTrustResourceUrl('/assets/left.svg'));
     iconRegistry.addSvgIcon('right',
       sanitizer.bypassSecurityTrustResourceUrl('/assets/right.svg'));
+    iconRegistry.addSvgIcon('calendar',
+      sanitizer.bypassSecurityTrustResourceUrl('/assets/calendar.svg'));
   }
 
   ngOnDestroy() {
