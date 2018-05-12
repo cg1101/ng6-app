@@ -1,6 +1,8 @@
 import {Component, OnDestroy, ChangeDetectorRef, Host, Inject} from '@angular/core';
-import {Subject} from 'rxjs';
+import {DomSanitizer} from '@angular/platform-browser';
 import {MatCalendar, DateAdapter, MAT_DATE_FORMATS, MatDateFormats} from '@angular/material';
+import {MatIconRegistry} from '@angular/material';
+import {Subject} from 'rxjs';
 import {Moment} from 'moment';
 
 @Component({
@@ -21,7 +23,12 @@ export class MyDatePickerHeaderComponent implements OnDestroy {
   constructor(@Host() private _calendar: MatCalendar<Moment>,
               private _dateAdapter: DateAdapter<Moment>,
               @Inject(MAT_DATE_FORMATS) private _dateFormats: MatDateFormats,
-              cdr: ChangeDetectorRef) {
+              cdr: ChangeDetectorRef,
+              iconRegistry: MatIconRegistry, sanitizer: DomSanitizer) {
+    iconRegistry.addSvgIcon('left',
+      sanitizer.bypassSecurityTrustResourceUrl('/assets/left.svg'));
+    iconRegistry.addSvgIcon('right',
+      sanitizer.bypassSecurityTrustResourceUrl('/assets/right.svg'));
   }
 
   ngOnDestroy() {
