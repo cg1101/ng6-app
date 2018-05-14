@@ -1,6 +1,6 @@
 import {
   Component, ViewChild, HostBinding, AfterViewInit, OnChanges, SimpleChanges, Input, Output,
-  EventEmitter
+  EventEmitter, ElementRef
 } from '@angular/core';
 import {MyDatePickerHeaderComponent} from './my-date-picker-header.component';
 import {DomSanitizer} from '@angular/platform-browser';
@@ -17,6 +17,7 @@ export class MyDatePickerComponent {
   @Output() dateChange: EventEmitter<Date> = new EventEmitter<Date>();
 
   @ViewChild('picker', {read: MatDatepicker}) datePicker: MatDatepicker;
+  // @ViewChild('picker') datePicker: ElementRef;
 
   @HostBinding('class.open')
   get isDatepickerOpen() {
