@@ -1,6 +1,7 @@
 :host {
   display: flex;
   flex-flow: row nowrap;
+  padding-top: 1em;
   > * {
     padding: 0.5em;
     &:not(.main) {

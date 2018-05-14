@@ -10,8 +10,6 @@
       display: flex;
       flex-flow: row nowrap;
 
-      > * {
-      }
       input {
         display: block;
         width: 300px;
@@ -23,17 +21,17 @@
       mat-icon {
         flex: 0 0 1;
         margin: 8px;
+        &.closed {
+          color: #acb5be;
+        }
       }
     }
+
     div.place-holder {
       height: 354px;
       background-color: white;
       display: none;
     }
-  }
-
-  .mat-calendar-body-cell-content.mat-calendar-body-selected {
-    background-color: #2199f4;
   }
 }
 
