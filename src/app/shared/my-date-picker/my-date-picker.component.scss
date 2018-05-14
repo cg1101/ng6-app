@@ -9,18 +9,18 @@
     div.top-line {
       display: flex;
       flex-flow: row nowrap;
-
+      margin: 8px;
       input {
         display: block;
-        width: 300px;
+        width: 278px;
         flex: 10 0 10em;
         outline: none;
         border: none;
         font-size: 14px;
+        padding: 0 8px;
       }
       mat-icon {
         flex: 0 0 1;
-        margin: 8px;
         &.gray {
           color: #acb5be;
         }
