@@ -1,32 +1,47 @@
 :host {
-  input {
-    font-size: 24px;
-  }
-  mat-datepicker-toggle.mat-datepicker-toggle-active {
-
-  }
+  display: inline-block;
+  border: lightgray thin solid;
+  border-radius: 4px;
 
   div.datepicker-container {
     position: relative;
-    width: 300px;
-    border: 1px solid blue;
+
     div.top-line {
+      display: flex;
+      flex-flow: row nowrap;
+
+      > * {
+      }
       input {
         display: block;
+        width: 300px;
+        flex: 10 0 10em;
         outline: none;
         border: none;
-        padding-left: 30px;
+        font-size: 14px;
       }
       mat-icon {
-        position: absolute;
-        left: 0;
-        top: 0;
+        flex: 0 0 1;
+        margin: 8px;
       }
     }
     div.place-holder {
-      height: 300px;
-      background-color: red;
-      border: yellow 1px solid;
+      height: 354px;
+      background-color: white;
+      display: none;
+    }
+  }
+
+  .mat-calendar-body-cell-content.mat-calendar-body-selected {
+    background-color: #2199f4;
+  }
+}
+
+:host-context(.open) {
+  box-shadow: 0 5px 5px -3px rgba(0, 0, 0, .2), 0 8px 10px 1px rgba(0, 0, 0, .14), 0 3px 14px 2px rgba(0, 0, 0, .12);
+  div.datepicker-container {
+    div.place-holder {
+      display: block;
     }
   }
 }

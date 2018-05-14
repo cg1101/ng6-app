@@ -1,30 +1,10 @@
-<h2>date picker</h2>
-
 <div class="datepicker-container">
   <div class="top-line">
-    <input matInput [matDatepicker]="picker2" placeholder="Choose a date">
     <mat-icon svgIcon="calendar" (click)="toggleDatePicker()"></mat-icon>
-    <mat-datepicker-toggle matSuffix [for]="picker2">
-      <mat-icon matDatepickerToggleIcon svgIcon="calendar"></mat-icon>
-    </mat-datepicker-toggle>
+    <input matInput [matDatepicker]="picker" placeholder="Immediately">
+    <mat-icon svgIcon="{{isDatepickerOpen ? 'up': 'down'}}" (click)="toggleDatePicker()"></mat-icon>
   </div>
   <div class="place-holder">
-    <mat-datepicker #picker2 [calendarHeaderComponent]="datePickerHeader"></mat-datepicker>
+    <mat-datepicker #picker [calendarHeaderComponent]="datePickerHeader"></mat-datepicker>
   </div>
 </div>
-
-
-<mat-datepicker-toggle matSuffix [for]="picker">
-  <mat-icon matDatepickerToggleIcon svgIcon="calendar"></mat-icon>
-</mat-datepicker-toggle>
-<input matInput [matDatepicker]="picker" placeholder="Choose a date">
-<mat-datepicker [calendarHeaderComponent]="datePickerHeader" #picker></mat-datepicker>
-
-<!--
-<mat-form-field>
-  <mat-label>Start Date</mat-label>
-  <input matInput [matDatepicker]="picker">
-  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-  <mat-datepicker #picker [calendarHeaderComponent]="exampleHeader"></mat-datepicker>
-</mat-form-field>
--->
