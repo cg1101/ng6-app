@@ -1,0 +1,9 @@
+:host {
+  div.box {
+    display: flex;
+    flex-flow: column nowrap;
+    > * {
+      min-height: 200px;
+    }
+  }
+}

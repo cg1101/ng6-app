@@ -1,4 +1,7 @@
-import {Component, ViewChild, HostBinding, AfterViewInit, OnChanges, SimpleChanges} from '@angular/core';
+import {
+  Component, ViewChild, HostBinding, AfterViewInit, OnChanges, SimpleChanges, Input, Output,
+  EventEmitter
+} from '@angular/core';
 import {MyDatePickerHeaderComponent} from './my-date-picker-header.component';
 import {DomSanitizer} from '@angular/platform-browser';
 import {MatIconRegistry, MatDatepicker} from '@angular/material';
@@ -10,8 +13,8 @@ import {MatIconRegistry, MatDatepicker} from '@angular/material';
 })
 export class MyDatePickerComponent {
 
-  datePickerHeader = MyDatePickerHeaderComponent;
-  date = new Date();
+  @Input() placeholder = null;
+  @Output() dateChange: EventEmitter<Date> = new EventEmitter<Date>();
 
   @ViewChild('picker', {read: MatDatepicker}) datePicker: MatDatepicker;
 
@@ -19,6 +22,17 @@ export class MyDatePickerComponent {
   get isDatepickerOpen() {
     return this.datePicker && this.datePicker.opened;
   };
+
+  datePickerHeader = MyDatePickerHeaderComponent;
+  _date = new Date();
+
+  get date(): Date {
+    return this._date;
+  }
+  @Input() set date(newDate) {
+    this._date = newDate;
+    this.dateChange.emit(newDate);
+  }
 
   constructor(iconRegistry: MatIconRegistry, sanitizer: DomSanitizer) {
     iconRegistry.addSvgIcon('calendar',

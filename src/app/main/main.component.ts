@@ -7,9 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainComponent implements OnInit {
 
+  dateInput = null;
+
   constructor() { }
 
   ngOnInit() {
+  }
+
+  dateChanged(newDate) {
+    console.log('newDate is', newDate);
   }
 
 }

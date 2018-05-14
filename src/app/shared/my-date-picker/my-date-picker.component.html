@@ -2,13 +2,16 @@
   <div class="top-line">
     <mat-icon svgIcon="calendar"
               (click)="toggleDatePicker()"></mat-icon>
-    <input matInput [(ngModel)]="date"
-           [matDatepicker]="picker" placeholder="Immediately">
+    <input matInput
+           [(ngModel)]="date"
+           [matDatepicker]="picker"
+           placeholder="{{placeholder}}">
     <mat-icon svgIcon="{{isDatepickerOpen ? 'up': 'down'}}"
               [ngClass]="isDatepickerOpen ? '' : 'gray'"
               (click)="toggleDatePicker()"></mat-icon>
   </div>
   <div class="place-holder">
-    <mat-datepicker #picker [calendarHeaderComponent]="datePickerHeader"></mat-datepicker>
+    <mat-datepicker [calendarHeaderComponent]="datePickerHeader"
+                    #picker></mat-datepicker>
   </div>
 </div>

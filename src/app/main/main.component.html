@@ -1,4 +1,15 @@
 <hr>
 <h2>Main</h2>
 
-<app-my-date-picker></app-my-date-picker>
+<div class="box">
+  <div>
+    <app-my-date-picker [(date)]="dateInput"
+                        (dateChange)="dateChanged($event)"
+                        placeholder="Choose Start Date"></app-my-date-picker>
+  </div>
+  <div>
+    <app-my-date-picker [(date)]="dateInput"
+                        (dateChange)="dateChanged($event)"
+                        placeholder="Choose End Date"></app-my-date-picker>
+  </div>
+</div>
