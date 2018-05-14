@@ -1,4 +1,4 @@
-import {Component, ViewChild, ElementRef, HostBinding, AfterViewInit} from '@angular/core';
+import {Component, ViewChild, HostBinding, AfterViewInit, OnChanges, SimpleChanges} from '@angular/core';
 import {MyDatePickerHeaderComponent} from './my-date-picker-header.component';
 import {DomSanitizer} from '@angular/platform-browser';
 import {MatIconRegistry, MatDatepicker} from '@angular/material';
@@ -8,11 +8,10 @@ import {MatIconRegistry, MatDatepicker} from '@angular/material';
   templateUrl: './my-date-picker.component.html',
   styleUrls: ['./my-date-picker.component.scss']
 })
-export class MyDatePickerComponent implements AfterViewInit {
+export class MyDatePickerComponent {
 
   datePickerHeader = MyDatePickerHeaderComponent;
-  startDate = new Date();
-  isOpened = false;
+  date = new Date();
 
   @ViewChild('picker', {read: MatDatepicker}) datePicker: MatDatepicker;
 
@@ -30,13 +29,7 @@ export class MyDatePickerComponent implements AfterViewInit {
       sanitizer.bypassSecurityTrustResourceUrl('/assets/up.svg'));
   }
 
-  ngAfterViewInit() {
-    // this.isOpened = this.datePicker.opened;
-  }
-
   toggleDatePicker() {
-    console.log('toggle date picker', this.datePicker, 'isOpened', this.datePicker.opened, 'isOpened', this.isOpened);
-    // debugger
     if (this.isDatepickerOpen) {
       this.datePicker.opened = false;
     } else {
