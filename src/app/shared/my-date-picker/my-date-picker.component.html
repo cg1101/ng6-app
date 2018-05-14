@@ -1,5 +1,19 @@
 <h2>date picker</h2>
 
+<div class="datepicker-container">
+  <div class="top-line">
+    <input matInput [matDatepicker]="picker2" placeholder="Choose a date">
+    <mat-icon svgIcon="calendar" (click)="toggleDatePicker()"></mat-icon>
+    <mat-datepicker-toggle matSuffix [for]="picker2">
+      <mat-icon matDatepickerToggleIcon svgIcon="calendar"></mat-icon>
+    </mat-datepicker-toggle>
+  </div>
+  <div class="place-holder">
+    <mat-datepicker #picker2 [calendarHeaderComponent]="datePickerHeader"></mat-datepicker>
+  </div>
+</div>
+
+
 <mat-datepicker-toggle matSuffix [for]="picker">
   <mat-icon matDatepickerToggleIcon svgIcon="calendar"></mat-icon>
 </mat-datepicker-toggle>
